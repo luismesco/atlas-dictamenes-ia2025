@@ -169,6 +169,8 @@ html.mobile-ui{font-size:16px;-webkit-text-size-adjust:100%}.mobile-ui body{over
 .context-picker-map.is-multiple .context-map-label[aria-pressed=true] text{fill:#6e1730;text-decoration:underline;text-decoration-color:#987342}
 #stateDocuments>.document-group+.document-group{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--line)}
 
+.context-analysis-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;min-height:2.75rem}.context-analysis-link svg{width:1.1rem;height:1.1rem;flex:none}.context-observation-section .results-head{flex-wrap:wrap;gap:.4rem 1rem}
+
 /* Keep the map dominant; the planning calendar shares its row on wide screens. */
 #view-mapa .territory.has-calendar-sidebar{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;align-items:start}
 .sidebar-calendar{min-width:0;padding:1.15rem;background:#fff;overflow:visible}
@@ -464,6 +466,7 @@ const contextWorkspaceTabs=contextWorkspace.querySelector('.case-switch');
 contextWorkspaceTabs.className='context-workspace-tabs';contextWorkspaceTabs.setAttribute('aria-label','Secciones del expediente');contextWorkspaceTabs.innerHTML=`<button type="button" id="workspaceObservationsTab" data-workspace-section="observations" aria-pressed="true">${docIcon('list')}Observaciones</button><button type="button" id="workspaceDocumentsTab" data-workspace-section="documents" aria-pressed="false">${docIcon('folder')}Documentos del expediente</button>`;
 [...contextWorkspace.children].filter(x=>x!==contextWorkspaceTabs).forEach(x=>contextObservationSection.append(x));contextWorkspace.append(contextObservationSection,$('stateDocuments'));$('stateDocuments').hidden=true;
 $('caseResults').classList.add('context-observation-list');
+const contextAnalysisLink=document.createElement('button');contextAnalysisLink.type='button';contextAnalysisLink.id='contextAnalysisLink';contextAnalysisLink.className='text-button context-analysis-link';contextAnalysisLink.dataset.view='fondo';contextAnalysisLink.innerHTML=docIcon('book')+'Análisis de ambas vueltas';contextObservationSection.querySelector('.results-head').append(contextAnalysisLink);
 const contextBaseShow=show;
 show=function(view,focus=false){if(view==='estado'&&contextStates.size)view='conclusiones';const result=contextBaseShow(view,focus);contextHubReturn.hidden=!contextStates.size||view==='conclusiones'||view==='mapa';$('contextDocuments').hidden=!contextStates.size||view==='conclusiones';return result;};
 function contextCalendarEventAllowed(event){if(!contextStates.size||!event.scopes.length)return true;const names=new Set(D.states.filter(s=>contextStates.has(s.id)).map(s=>norm(s.name)));return event.scopes.some(scope=>scope.code==='FED'||names.has(norm(scope.entity))||[...contextStates].some(id=>D.calendar.stateCodes[id]===scope.code));}

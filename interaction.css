@@ -72,3 +72,5 @@
 .context-picker-map.is-multiple .context-map-label[aria-pressed=false] text{fill:#62595d}
 .context-picker-map.is-multiple .context-map-label[aria-pressed=true] text{fill:#6e1730;text-decoration:underline;text-decoration-color:#987342}
 #stateDocuments>.document-group+.document-group{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+
+.context-analysis-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;min-height:2.75rem}.context-analysis-link svg{width:1.1rem;height:1.1rem;flex:none}.context-observation-section .results-head{flex-wrap:wrap;gap:.4rem 1rem}
