@@ -45,9 +45,23 @@ const contextWorkspaceTabs=contextWorkspace.querySelector('.case-switch');
 contextWorkspaceTabs.className='context-workspace-tabs';contextWorkspaceTabs.setAttribute('aria-label','Secciones del expediente');contextWorkspaceTabs.innerHTML=`<button type="button" id="workspaceObservationsTab" data-workspace-section="observations" aria-pressed="true">${docIcon('list')}Observaciones</button><button type="button" id="workspaceDocumentsTab" data-workspace-section="documents" aria-pressed="false">${docIcon('folder')}Documentos del expediente</button>`;
 [...contextWorkspace.children].filter(x=>x!==contextWorkspaceTabs).forEach(x=>contextObservationSection.append(x));contextWorkspace.append(contextObservationSection,$('stateDocuments'));$('stateDocuments').hidden=true;
 $('caseResults').classList.add('context-observation-list');
+function decorateObservationRows(){
+ const table=$('caseResults'),headers=[['observationHeaderName','Observación y cruce'],['observationHeaderStatus','Estatus'],['observationHeaderDescription','Descripción'],['observationHeaderActions','Acciones']];
+ table.setAttribute('role','table');table.setAttribute('aria-label','Observaciones y correspondencia entre vueltas');table.setAttribute('aria-colcount','4');table.setAttribute('aria-rowcount',String(lastCases.length+1));
+ const head=document.createElement('div');head.className='context-observation-head';head.setAttribute('role','row');head.setAttribute('aria-rowindex','1');head.innerHTML=headers.map(([id,label],index)=>`<span role="columnheader" aria-colindex="${index+1}" id="${id}">${label}</span>`).join('');table.prepend(head);
+ [...table.querySelectorAll('.case-card')].forEach((row,index)=>{
+  const name=row.querySelector('h3'),cross=row.querySelector('.case-meta'),status=row.querySelector('.pill'),description=row.querySelector('.conduct'),actions=row.querySelector('.card-actions'),extras=[...row.children].filter(x=>![name,cross,status,description,actions].includes(x));
+  const parts=[[name,cross],[status],[description,...extras],[actions]],kinds=['name','status','description','actions'];row.setAttribute('role','row');row.setAttribute('aria-rowindex',String(index+2));
+  parts.forEach((nodes,i)=>{const cell=document.createElement('div');cell.className='observation-cell observation-cell-'+kinds[i];cell.setAttribute('role','cell');cell.setAttribute('aria-describedby',headers[i][0]);cell.setAttribute('aria-colindex',String(i+1));const label=document.createElement('span');label.className='observation-mobile-label';label.setAttribute('aria-hidden','true');label.textContent=headers[i][1];cell.append(label);nodes.filter(Boolean).forEach(node=>cell.append(node));row.append(cell);});
+ });
+ const empty=table.querySelector(':scope>.empty');if(empty){const row=document.createElement('div');row.setAttribute('role','row');const cell=document.createElement('div');cell.setAttribute('role','cell');cell.setAttribute('aria-colspan','4');empty.replaceWith(row);cell.append(empty);row.append(cell);}
+}
+const contextRenderCases=renderCases;
+renderCases=function(){contextRenderCases();decorateObservationRows();};
+
 const contextAnalysisLink=document.createElement('button');contextAnalysisLink.type='button';contextAnalysisLink.id='contextAnalysisLink';contextAnalysisLink.className='text-button context-analysis-link';contextAnalysisLink.dataset.view='fondo';contextAnalysisLink.innerHTML=docIcon('book')+'Análisis de ambas vueltas';contextObservationSection.querySelector('.results-head').append(contextAnalysisLink);
 const contextBaseShow=show;
-show=function(view,focus=false){if(view==='estado'&&contextStates.size)view='conclusiones';const result=contextBaseShow(view,focus);contextHubReturn.hidden=!contextStates.size||view==='conclusiones'||view==='mapa';$('contextDocuments').hidden=!contextStates.size||view==='conclusiones';return result;};
+show=function(view,focus=false){if(view==='estado'&&contextStates.size)view='conclusiones';const result=contextBaseShow(view,focus);contextHubReturn.hidden=!contextStates.size||view==='conclusiones'||view==='mapa';$('contextDocuments').hidden=true;return result;};
 function contextCalendarEventAllowed(event){if(!contextStates.size||!event.scopes.length)return true;const names=new Set(D.states.filter(s=>contextStates.has(s.id)).map(s=>norm(s.name)));return event.scopes.some(scope=>scope.code==='FED'||names.has(norm(scope.entity))||[...contextStates].some(id=>D.calendar.stateCodes[id]===scope.code));}
 function showWorkspaceSection(section){
  if(section==='documents'&&!contextStates.size){openContextMap();return;}
@@ -58,7 +72,7 @@ function updateContextWorkspace(){
  updateContextHubReturn();$('workspaceDocumentsTab').disabled=!contextStates.size;
  const title=contextObservationSection.querySelector('.section-top h2');if(title)title.textContent=contextStates.size?(contextStates.size===1?'Expediente · ':'Expedientes · ')+contextSelectionTitle():'Expedientes';
  if(contextStates.size){$('contextInfo').textContent=contextSelectionTitle()+' · Informe Anual 2025';$('contextInfo').title=D.states.filter(s=>contextStates.has(s.id)).map(s=>s.name).join(', ');}
- $('contextDocuments').hidden=!contextStates.size||location.hash==='#conclusiones';
+ $('contextDocuments').hidden=true;
  if(!contextStates.size&&contextObservationSection.hidden)showWorkspaceSection('observations');
 }
 function persistContextSelection(){const url=new URL(location.href);if(contextStates.size>1)url.searchParams.set('expedientes',D.states.filter(s=>contextStates.has(s.id)).map(s=>s.id).join(','));else url.searchParams.delete('expedientes');history.replaceState(null,'',url);}
@@ -68,14 +82,15 @@ syncContext=function(id){applyContextStates(id?[id]:[]);};
 function openContextWorkspace(ids,section='observations',focus=true){applyContextStates(ids);renderMap();renderState();if(contextMapDialog.open)contextMapDialog.close();showWorkspaceSection(section);show('conclusiones',focus);announce(contextStates.size?'Expedientes: '+contextSelectionTitle():'Todos los estados');}
 function openStateWorkspace(id,section='observations',focus=true){if(id&&!state(id))return;openContextWorkspace(id?[id]:[],section,focus);}
 selectState=function(id){if($('homeStatePicker')?.open)$('homeStatePicker').close();openStateWorkspace(id);};
+function contextSelectionCount(n){return n+' '+(n===1?'estado seleccionado':'estados seleccionados');}
 function paintContextSelection(){
  const multi=$('contextMultiple').checked,chosen=multi?contextDraft:contextStates;
  $('contextPickerMap').classList.toggle('is-multiple',multi);$('contextMultipleActions').hidden=!multi;
- $('contextSelectionCount').textContent=chosen.size+' estados seleccionados';$('contextApplySelection').disabled=!chosen.size;$('contextApplySelection').textContent='Ver expedientes ('+chosen.size+')';
+ $('contextSelectionCount').textContent=contextSelectionCount(chosen.size);$('contextApplySelection').disabled=!chosen.size;$('contextApplySelection').textContent=(chosen.size===1?'Ver expediente (':'Ver expedientes (')+chosen.size+')';
  for(const path of $('contextPickerMap').querySelectorAll('path[data-cve-ent]')){const s=D.states.find(s=>s.geo===path.dataset.cveEnt);path.classList.toggle('context-current',!!s&&chosen.has(s.id));}
  for(const group of $('contextPickerMap').querySelectorAll('[data-context-state]')){const s=state(group.dataset.contextState),on=chosen.has(s.id);group.setAttribute('aria-pressed',String(on));group.setAttribute('aria-label',multi?(on?'Quitar ':'Incluir ')+s.name+' en la selección':'Abrir expediente de '+s.name);}
 }
-function chooseContextMap(id){if($('contextMultiple').checked){contextDraft.has(id)?contextDraft.delete(id):contextDraft.add(id);paintContextSelection();announce(contextDraft.size+' estados seleccionados');return;}openStateWorkspace(id);}
+function chooseContextMap(id){if($('contextMultiple').checked){contextDraft.has(id)?contextDraft.delete(id):contextDraft.add(id);paintContextSelection();announce(contextSelectionCount(contextDraft.size));return;}openStateWorkspace(id);}
 const contextFilteredPrecedents=filteredPrecedents;
 filteredPrecedents=function(){const rows=contextFilteredPrecedents();if(!contextStates.size)return rows;const keys=new Set(D.conclusions.filter(c=>contextScopeHas(c.state)&&c.evaluable).flatMap(c=>eligibleRules(c).map(r=>r.precedent)));return rows.filter(p=>keys.has(p.key));};
 const contextRenderPrecedents=renderPrecedents;
