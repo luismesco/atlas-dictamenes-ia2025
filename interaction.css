@@ -1,0 +1,24 @@
+.context-native-state{display:none!important}
+#contextMapButton{display:inline-flex;align-items:center;gap:.6rem;max-width:100%;font-size:1rem}
+#contextMapButton svg,.stage-card h4 svg,.stage-panel-heading h3 svg,.stage-tab svg,.context-map-picker h2 svg{width:1.5rem;height:1.5rem;flex:none}
+.context-map-picker h2,.stage-card h4,.stage-panel-heading h3{display:flex;align-items:center;gap:.65rem}
+.context-map-picker{width:min(58rem,calc(100% - 2rem))}
+.context-picker-map svg{width:100%;height:auto;max-height:52dvh}
+.context-picker-map path{fill:#e1ddd6!important;stroke:white!important;stroke-width:1}
+.context-picker-map path.available{fill:#b98698!important;cursor:pointer}
+.context-picker-map path.context-current{fill:#6e1730!important}
+.context-picker-map path.available:hover,.context-picker-map path.available:focus{fill:#6e1730!important;outline:none;stroke:#a17942!important;stroke-width:3}
+.context-picker-states{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:1rem 0}
+.context-state-choice{padding:.8rem;border:1px solid #d7cdd1;background:white;border-radius:.5rem;min-height:2.75rem}
+.context-state-choice[aria-pressed=true]{background:#f5eaf0;border-color:#6e1730;color:#6e1730}
+.literal-document{font-family:'Arial Narrow',Arial,sans-serif;font-size:1rem;line-height:1.7;overflow-wrap:anywhere;max-width:100%}
+.literal-document p{white-space:pre-wrap;margin:0 0 1rem!important;font:inherit!important}
+.literal-document .literal-table-scroll{overflow:auto;max-width:100%;margin:1rem 0}
+.literal-document table{border-collapse:collapse;width:100%;font-size:.95rem}
+.literal-document td,.literal-document th{border:1px solid #c9bec3;padding:.55rem;vertical-align:top;min-width:6rem}
+.literal-document td p{margin:0 0 .5rem!important}
+.literal-document .literal-list{padding-left:1.25rem}
+.literal-source{font-size:.85rem!important;color:#62575b;border-left:3px solid #a17942;padding-left:.75rem;margin-bottom:1rem}
+.round-cards{grid-template-columns:1fr!important;align-items:start}
+.literal-absent{color:#62575b}
+@media(min-width:48rem){.context-picker-states{grid-template-columns:repeat(3,minmax(0,1fr))}.context-map-body{padding:0 1rem 1rem}.literal-document{font-size:1.05rem}}
