@@ -4,13 +4,44 @@
 .context-map-picker h2,.stage-card h4,.stage-panel-heading h3{display:flex;align-items:center;gap:.65rem}
 .context-map-picker{width:min(58rem,calc(100% - 2rem))}
 .context-picker-map svg{width:100%;height:auto;max-height:52dvh}
-.context-picker-map path{fill:#e1ddd6!important;stroke:white!important;stroke-width:1}
+.context-picker-map path[data-cve-ent]{fill:#e1ddd6!important;stroke:white!important;stroke-width:1}
 .context-picker-map path.available{fill:#b98698!important;cursor:pointer}
 .context-picker-map path.context-current{fill:#6e1730!important}
 .context-picker-map path.available:hover,.context-picker-map path.available:focus{fill:#6e1730!important;outline:none;stroke:#a17942!important;stroke-width:3}
-.context-picker-states{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:1rem 0}
-.context-state-choice{padding:.8rem;border:1px solid #d7cdd1;background:white;border-radius:.5rem;min-height:2.75rem}
-.context-state-choice[aria-pressed=true]{background:#f5eaf0;border-color:#6e1730;color:#6e1730}
+.context-map-label{cursor:pointer;outline:none}
+.context-map-label polyline{fill:none;stroke:#987342;stroke-width:2;vector-effect:non-scaling-stroke}
+.context-map-label circle{fill:#987342;stroke:white;stroke-width:1;vector-effect:non-scaling-stroke}
+.context-map-label text{font-family:inherit;font-size:40px;font-weight:600;fill:#6e1730;stroke:white;stroke-width:4;paint-order:stroke;stroke-linejoin:round}
+.context-map-label:hover text,.context-map-label:focus-visible text{text-decoration:underline;text-decoration-color:#987342;text-decoration-thickness:3px}
+.context-map-label:focus-visible polyline{stroke-width:4}
+.context-hub-return{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;min-height:2.75rem}
+.context-hub-return[hidden]{display:none!important}
+.context-hub-return svg{width:1.15rem;height:1.15rem;flex:none}
+.context-bar #contextHubReturn span{display:inline!important}
+.context-workspace-tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin:0 0 1.2rem}
+.context-workspace-tabs button{display:inline-flex;gap:.5rem;align-items:center;min-height:2.75rem;border:1px solid var(--line);background:white;border-radius:.45rem;padding:.65rem .9rem;font-size:.88rem;color:var(--ink)}
+.context-workspace-tabs button[aria-pressed=true]{border-color:#c89fae;color:var(--wine);background:#f6edef;font-weight:600}
+.context-workspace-tabs button:disabled{opacity:.5;cursor:not-allowed}
+.context-workspace-tabs svg{width:1.3rem;height:1.3rem;flex:none}
+.context-observation-section[hidden],#stateDocuments[hidden]{display:none!important}
+.context-observation-list{display:flex!important;flex-direction:column;gap:0!important;border:1px solid var(--line);border-radius:.6rem;background:white;overflow:hidden}
+.context-observation-list .case-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.4rem .8rem;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;padding:1rem}
+.context-observation-list .case-card:last-child{border-bottom:0}
+.context-observation-list .case-meta{grid-column:1/-1;margin:0;font-size:.73rem}
+.context-observation-list h3{grid-column:1;grid-row:2;margin:0!important;font-size:.88rem!important;overflow-wrap:anywhere}
+.context-observation-list .pill{grid-column:2;grid-row:2;align-self:start;font-size:.68rem;justify-self:end}
+.context-observation-list .conduct{grid-column:1/-1;font-size:.85rem;line-height:1.6;margin:.2rem 0!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.context-observation-list .money,.context-observation-list .caption,.context-observation-list .assessment{display:none}
+.context-observation-list .card-actions{grid-column:1/-1;margin:.3rem 0 0;gap:.8rem;align-items:center}
+.context-observation-list .card-actions .button{font-size:.75rem;min-height:2.35rem;padding:.5rem .75rem}
+.context-observation-list .card-actions .text-button{font-size:.75rem}
+.context-precedent-note{font-size:.82rem;color:var(--wine);line-height:1.6}
+.document-appeal-row{display:flex;flex-direction:column;gap:.5rem;padding:.85rem;border:1px solid var(--line);border-radius:.45rem;text-decoration:none;line-height:1.55;color:var(--ink)}
+.document-appeal-row>strong{font-size:.85rem;color:var(--wine);overflow-wrap:anywhere}
+.document-appeal-row>span{font-size:.8rem;color:var(--muted)}
+.document-appeal-row>b{display:flex;gap:.4rem;align-items:center;font-size:.8rem;color:var(--wine);font-weight:600}
+.document-appeal-row svg{width:1rem;height:1rem;flex:none}
+.document-appeal-row:hover,.document-appeal-row:focus-visible{border-color:var(--wine);background:#fcf8f9}
 .literal-document{font-family:'Arial Narrow',Arial,sans-serif;font-size:1rem;line-height:1.7;overflow-wrap:anywhere;max-width:100%}
 .literal-document p{white-space:pre-wrap;margin:0 0 1rem!important;font:inherit!important}
 .literal-document .literal-table-scroll{overflow:auto;max-width:100%;margin:1rem 0}
@@ -21,7 +52,7 @@
 .literal-source{font-size:.85rem!important;color:#62575b;border-left:3px solid #a17942;padding-left:.75rem;margin-bottom:1rem}
 .round-cards{grid-template-columns:1fr!important;align-items:start}
 .literal-absent{color:#62575b}
-@media(min-width:48rem){.context-picker-states{grid-template-columns:repeat(3,minmax(0,1fr))}.context-map-body{padding:0 1rem 1rem}.literal-document{font-size:1.05rem}}
+@media(min-width:48rem){.context-map-body{padding:0 1rem 1rem}.literal-document{font-size:1.05rem}.context-map-label text{font-size:24px}.context-observation-list .case-card{grid-template-columns:minmax(11rem,1fr) minmax(6rem,.55fr) minmax(0,2fr) auto;gap:.35rem 1rem;padding:1rem 1.2rem}.context-observation-list h3{grid-column:1;grid-row:1}.context-observation-list .case-meta{grid-column:1;grid-row:2}.context-observation-list .pill{grid-column:2;grid-row:1/3;justify-self:start}.context-observation-list .conduct{grid-column:3;grid-row:1/3;margin:0!important}.context-observation-list .card-actions{grid-column:4;grid-row:1/3;display:flex;flex-direction:column;align-items:stretch;margin:0}.context-observation-list .card-actions .text-button{text-align:center}.document-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 .stage-tab>.stage-number{display:none}.stage-tab>svg{align-self:flex-start}.stage-tab{gap:.65rem}
 
