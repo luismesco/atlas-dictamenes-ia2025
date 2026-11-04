@@ -22,3 +22,8 @@
 .round-cards{grid-template-columns:1fr!important;align-items:start}
 .literal-absent{color:#62575b}
 @media(min-width:48rem){.context-picker-states{grid-template-columns:repeat(3,minmax(0,1fr))}.context-map-body{padding:0 1rem 1rem}.literal-document{font-size:1.05rem}}
+
+.stage-tab>.stage-number{display:none}.stage-tab>svg{align-self:flex-start}.stage-tab{gap:.65rem}
+
+.context-bar #contextMapButton span{display:inline!important;color:var(--wine);font-size:1rem}.context-bar #contextMapButton svg{display:block!important}.context-bar #contextMapButton{flex-shrink:1;min-width:0}.context-bar #contextInfo{overflow-wrap:anywhere}
+@media(max-width:760px){.context-bar #contextMapButton{padding:.65rem .75rem;gap:.5rem}.context-bar #contextMapButton span{font-size:.9rem}.context-map-picker .context-map-body{overflow:auto;padding:1rem}.context-picker-map svg{max-height:42dvh}.context-map-picker .section-dialog-head{padding:1rem}}

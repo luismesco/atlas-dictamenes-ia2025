@@ -8,7 +8,7 @@ installBackdropClose();
 const contextMapDialog=document.createElement('dialog');contextMapDialog.id='contextMapPicker';contextMapDialog.className='section-dialog context-map-picker';contextMapDialog.setAttribute('aria-labelledby','contextMapTitle');
 contextMapDialog.innerHTML=`<div class="section-dialog-head"><h2 id="contextMapTitle">${docIcon('map')}Seleccionar estado</h2><button type="button" class="button light" id="closeContextMap">← Volver</button></div><div class="context-map-body"><div id="contextPickerMap" class="context-picker-map"></div><div id="contextPickerStates" class="context-picker-states"></div><button type="button" class="text-button" id="contextAllStates">Consultar todos los estados</button></div>`;
 document.body.append(contextMapDialog);
-const contextMapButton=document.createElement('button');contextMapButton.id='contextMapButton';contextMapButton.type='button';contextMapButton.className='button light';contextMapButton.setAttribute('aria-haspopup','dialog');contextMapButton.innerHTML=docIcon('map')+'<span>Seleccionar en el mapa</span>';
+const contextMapButton=document.createElement('button');contextMapButton.id='contextMapButton';contextMapButton.type='button';contextMapButton.className='button light';contextMapButton.setAttribute('aria-haspopup','dialog');contextMapButton.setAttribute('aria-label','Seleccionar estado en el mapa');contextMapButton.innerHTML=docIcon('map')+'<span>Seleccionar en el mapa</span>';
 $('contextState').after(contextMapButton);$('contextState').classList.add('context-native-state');
 const contextLabel=document.querySelector('label[for="contextState"]');if(contextLabel)contextLabel.classList.add('context-native-state');
 let contextMapOpener=null;

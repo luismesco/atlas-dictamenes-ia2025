@@ -1,0 +1,43 @@
+/* Keep the map dominant; the planning calendar shares its row on wide screens. */
+#view-mapa .territory.has-calendar-sidebar{display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;align-items:start}
+.sidebar-calendar{min-width:0;padding:1.15rem;background:#fff;overflow:visible}
+.sidebar-calendar-heading{display:flex;align-items:center;gap:.55rem}
+.sidebar-calendar-heading svg{width:1.3rem;height:1.3rem;fill:none;stroke:var(--wine,#6e1730);stroke-width:1.7;flex-shrink:0}
+.sidebar-calendar-heading h3{font-size:1rem;margin:0!important}
+.sidebar-calendar-heading>span{font-size:.75rem;color:var(--muted,#6b6265);margin-left:auto}
+.sidebar-calendar-phase{font-size:.78rem;color:var(--muted,#6b6265);margin:.8rem 0 .25rem;line-height:1.5}
+.sidebar-calendar-count{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin:0 0 .85rem}
+.sidebar-calendar-count strong{font-size:2.1rem;letter-spacing:-.05rem;color:var(--wine,#6e1730);line-height:1.2}
+.sidebar-calendar-count span{font-size:.82rem;line-height:1.45;max-width:12rem}
+.sidebar-calendar-dates{margin:0;display:grid;gap:.8rem}
+.sidebar-calendar-dates>div{border-top:1px solid var(--line,#e6e0e2);padding-top:.7rem}
+.sidebar-calendar-dates dt{font-size:.78rem;line-height:1.4;font-weight:600}
+.sidebar-calendar-dates dd{display:flex;gap:.6rem;align-items:baseline;flex-wrap:wrap;margin:.2rem 0 0}
+.sidebar-calendar-dates time{font-size:.95rem;font-weight:600;color:var(--wine,#6e1730)}
+.sidebar-calendar-dates dd>span,.sidebar-calendar-dates small{font-size:.72rem;color:var(--muted,#6b6265);line-height:1.5}
+.sidebar-calendar-dates small{display:block;margin-top:.15rem}
+.sidebar-calendar-month{margin-top:1rem}
+.sidebar-calendar-month>p{font-size:.78rem;font-weight:600;margin:0 0 .5rem;text-transform:capitalize}
+.sidebar-calendar-week,.sidebar-calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.15rem;text-align:center}
+.sidebar-calendar-week{font-size:.68rem;color:var(--muted,#6b6265);margin-bottom:.25rem}
+.sidebar-calendar-grid>span{font-size:.74rem;min-height:1.7rem;display:grid;place-items:center;border-radius:.3rem;border:1px solid transparent}
+.sidebar-calendar-day.session{background:#f1e6e9;color:var(--wine,#6e1730);font-weight:700;border-color:#d6b4bf}
+.sidebar-calendar-day.appeal{background:var(--wine,#6e1730);color:#fff;font-weight:700}
+.sidebar-calendar-day.today{outline:1px solid #987342;outline-offset:-1px}
+.sidebar-calendar-condition{font-size:.72rem!important;line-height:1.6!important;color:#51474c;margin:.85rem 0 .35rem!important}
+.sidebar-calendar-note{font-size:.68rem!important;line-height:1.55!important;color:var(--muted,#6b6265);margin:.25rem 0 .6rem!important}
+.sidebar-calendar-open{display:inline-flex;align-items:center;gap:.4rem;min-height:2.6rem;font-size:.78rem;text-align:left}
+.sidebar-calendar-open:focus-visible{outline:2px solid #987342;outline-offset:3px}
+@media(min-width:68rem){
+ #view-mapa .territory.has-calendar-sidebar{grid-template-columns:minmax(0,1fr) minmax(15rem,25%);column-gap:1.25rem}
+ #view-mapa .has-calendar-sidebar>.map-panel{grid-column:1;grid-row:1}
+ #view-mapa .has-calendar-sidebar>.sidebar-calendar{grid-column:2;grid-row:1/span 2;position:sticky;top:1rem}
+ #view-mapa .has-calendar-sidebar>.home-map-options{grid-column:1;grid-row:2}
+ #view-mapa .has-calendar-sidebar>.home-comparison{grid-column:1/-1}
+ #view-mapa .has-calendar-sidebar .home-map-stage #mapContainer svg{height:clamp(22rem,34vw,30rem)}
+ #view-mapa .has-calendar-sidebar .home-map-numbers{width:clamp(12.5rem,21vw,16rem);right:.6rem;top:.6rem}
+ #view-mapa .has-calendar-sidebar .home-map-numbers .home-scenario[data-active=true] strong{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+ #view-mapa .has-calendar-sidebar .home-map-numbers .home-scenario[data-active=true]>span{font-size:.65rem}
+ #view-mapa .has-calendar-sidebar .home-map-stage #homeMapLegend{max-width:14rem;right:.5rem;font-size:.56rem}
+}
+@media print{#mapCalendarSidebar{position:static!important;break-inside:avoid}#mapCalendarSidebar .sidebar-calendar-open{display:none}}
