@@ -6,7 +6,7 @@ Mapa interactivo de Jalisco, Quintana Roo, San Luis Potosí, Nuevo León y Guerr
 
 Descarga `index.html` y ábrelo en un navegador. Incluye sus datos, mapa y tipografía; la consulta funciona sin conexión. Los enlaces a documentos y sentencias requieren internet y, cuando corresponda, permisos de acceso.
 
-[Consultar el atlas publicado](https://atlas-dictamenes-ia2025-luis.luismontanezescobar.chatgpt.site)
+[Abrir el atlas en GitHub Pages](https://luismesco.github.io/atlas-dictamenes-ia2025/)
 
 ## Contenido
 
