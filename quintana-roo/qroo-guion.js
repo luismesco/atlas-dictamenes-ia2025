@@ -43,6 +43,7 @@
   function maxScroll() { return Math.max(0, document.documentElement.scrollHeight - window.innerHeight); }
   function statusGroup(status) {
     const normalized = String(status || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase();
+    if (/^no\s+atendid[ao]s?\b/.test(normalized)) return 'No atendida';
     if (normalized.startsWith('seguimiento')) return 'Seguimiento';
     if (normalized.startsWith('informativa')) return 'Informativa';
     if (normalized.startsWith('sin pronunciamiento')) return 'Sin pronunciamiento';
