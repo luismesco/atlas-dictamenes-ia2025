@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Luis Montañez Escobar">
+  <meta name="theme-color" content="#4a0d14">
+  <meta name="description" content="Guion de exposición de los seguimientos de Quintana Roo, con lectura continua y consulta de las fuentes.">
+  <title>Quintana Roo · Guion de exposición</title>
+  <link rel="stylesheet" href="qroo-guion.css">
+  <script src="guion-data.js" defer></script>
+  <script src="qroo-guion.js" defer></script>
+</head>
+<body class="reading-only">
+  <a class="skip" href="#guion">Ir al guion</a>
+  <header class="site-header">
+    <div class="wrap masthead">
+      <a class="brand" href="qroo.html"><span class="brand-mark" aria-hidden="true">Q</span><span>ATLAS DE DICTÁMENES</span></a>
+      <a class="back" href="qroo.html">← Volver a Quintana Roo</a>
+    </div>
+    <div class="wrap hero">
+      <p class="eyebrow">Quintana Roo · Exposición interna</p>
+      <h1 id="pageTitle">Guion de exposición</h1>
+      <div class="hero-meta"><span>Lectura continua</span><span id="cutoff" hidden></span><span id="sectionCount" hidden></span><span id="readingTime" hidden></span></div>
+      <div class="quick-links"><a href="qroo-laminas.html">Láminas →</a><a href="QROO_No_atendidas_y_seguimientos.pdf" download="QROO_No_atendidas_y_seguimientos.pdf">Descargar PDF ↓</a></div>
+    </div>
+  </header>
+
+  <div class="controls" id="readingControls" aria-label="Controles de lectura">
+    <div class="wrap controls-inner">
+      <div class="play-controls">
+        <button id="play" class="play-button" type="button" aria-pressed="false" disabled><span id="playIcon" aria-hidden="true">▶</span><span id="playLabel">Reproducir</span></button>
+        <div class="font-controls" role="group" aria-label="Tamaño de lectura">
+          <button id="fontDown" type="button" aria-label="Reducir tamaño del texto" disabled>A−</button>
+          <output id="fontValue" aria-live="polite">20 px</output>
+          <button id="fontUp" type="button" aria-label="Aumentar tamaño del texto" disabled>A+</button>
+        </div>
+      </div>
+      <label class="speed-control" for="speed"><span>Velocidad <output id="speedValue" for="speed">36 px/s</output></span><input id="speed" type="range" min="12" max="90" step="3" value="36" disabled></label>
+      <p class="keyboard-hint"><kbd>Espacio</kbd> reproducir / pausar · <kbd>Esc</kbd> pausar</p>
+    </div>
+    <div class="wrap reading-navigation">
+      <div class="mode-controls" role="group" aria-label="Modo de lectura"><button id="fullMode" type="button" aria-pressed="true">Guion completo</button><button id="singleMode" type="button" aria-pressed="false">Por observación</button></div>
+      <div class="case-controls" aria-label="Navegar por el guion"><button id="previousSection" type="button" aria-label="Apartado anterior" disabled>←</button><div class="current-reading"><strong id="currentId">Apertura</strong><span id="currentStatus"></span><span id="currentTitle"></span></div><button id="nextSection" type="button" aria-label="Apartado siguiente" disabled>→</button></div>
+    </div>
+    <div class="reading-progress" role="progressbar" id="readingProgress" aria-label="Avance de lectura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressFill"></span></div>
+  </div>
+
+  <main class="wrap" id="guion" tabindex="-1">
+    <p id="loadMessage" class="notice" role="status">Cargando el guion…</p>
+    <noscript><p class="notice">Activa JavaScript para consultar el guion y utilizar los controles de lectura.</p></noscript>
+    <div id="content" hidden>
+      <nav class="index panel" aria-label="Índice del guion">
+        <div class="index-heading"><div><p class="eyebrow">Ruta de lectura</p><h2>Ir a una observación</h2></div></div>
+        <div class="index-filters"><label class="status-label" for="statusSelect">Filtrar por estatus<select id="statusSelect"><option value="">Todos los estatus</option></select></label><label class="jump-label" for="sectionSelect">Seleccionar observación o apartado<select id="sectionSelect" aria-controls="sections"></select></label></div>
+        <p id="navigationHint" class="navigation-hint" role="status"></p>
+        <label class="support-toggle"><input type="checkbox" id="showSupport"> Mostrar apuntes y fuentes de apoyo</label>
+        <div id="sectionIndex" class="index-links"></div>
+      </nav>
+      <p id="noCases" class="notice" hidden>No hay observaciones con este estatus. Selecciona «Todos los estatus» para volver al guion.</p>
+      <section class="reading-section introduction" id="guion-introduccion" aria-labelledby="introTitle">
+        <div class="section-heading"><p class="eyebrow">Apertura</p><h2 id="introTitle">Para comenzar</h2></div>
+        <div id="introText" class="speech"></div>
+      </section>
+      <div id="sections"></div>
+      <section class="reading-section closing" id="guion-cierre" aria-labelledby="closingTitle" hidden>
+        <div class="section-heading"><p class="eyebrow">Cierre</p><h2 id="closingTitle">Para concluir</h2></div>
+        <div id="closingText" class="speech"></div>
+      </section>
+      <section class="findings" id="findings" aria-labelledby="findingsTitle" hidden>
+        <p class="eyebrow">Puntos para enfatizar</p><h2 id="findingsTitle">Al explicar el conjunto</h2><div id="findingList" class="finding-list"></div>
+      </section>
+      <section class="documents panel" id="documents" aria-labelledby="documentsTitle" hidden>
+        <p class="eyebrow">Consulta documental</p><h2 id="documentsTitle">Documentos de apoyo</h2><ul id="documentList" class="document-list"></ul>
+      </section>
+    </div>
+  </main>
+  <footer class="wrap site-footer"><a href="qroo.html">← Volver a las observaciones de Quintana Roo</a><p>Guion de exposición interna · Quintana Roo</p></footer>
+  <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+</body>
+</html>
