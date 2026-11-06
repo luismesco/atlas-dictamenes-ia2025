@@ -8,6 +8,8 @@ En Quintana Roo tenemos 26 observaciones. Voy a tratar 17: primero las 3 no aten
 
 En las no atendidas distinguiré la base residual de la posible sanción y mostraré precedentes con su resultado. En los demás casos hay pagos reconocidos, pagos alegados que requieren valoración y asuntos remitidos al ámbito nacional. Sus importes no son multas ni se suman como una deuda total.
 
+La UTF presenta el dictamen y el proyecto de resolución a la Comisión de Fiscalización; ésta los modifica, aprueba o rechaza y los pone a consideración del Consejo General del INE, que resuelve en definitiva. El dictamen del CEN corresponde a la revisión del Comité Ejecutivo Nacional del partido; no significa que el partido resuelva sus propias observaciones.
+
 
 
 ID 10 · Soporte de propaganda
@@ -16,9 +18,9 @@ No atendida · Primera vuelta: 6 · Segunda vuelta: 5
 
 
 
-Aquí el residual no atendido es $3,366,378.83, no los $4,740,503.47 iniciales. En la 1V separamos tres componentes: propaganda recibida del Partido Verde en 2018–2019 por $3,362,608.83, una amortización de $1,374,124.64 y materiales por $3,770.00. Para el saldo histórico invocamos las pólizas de recepción, distribución y traspaso de la coalición y pedimos valorar la baja contable, sujeta a autorización. Para los $3,770.00 afirmamos presentar factura, transferencia, Kardex y notas de entrada y salida, vinculados con PN-DR-1-01/03/2024 y PN-EG-13-27/03/2024. En la 2V reiteramos la procedencia de los bienes y afirmamos adjuntar soporte de su aplicación.
+La comprobación de entradas, salidas y destino de propaganda es el punto regulado en los artículos 77, 78 y 79 del Reglamento de Fiscalización. Aquí el residual no atendido es $3,366,378.83, no los $4,740,503.47 iniciales. En la 1V separamos tres componentes: propaganda recibida del Partido Verde en 2018–2019 por $3,362,608.83, una amortización de $1,374,124.64 y materiales por $3,770.00. Para el saldo histórico invocamos las pólizas de recepción, distribución y traspaso de la coalición y pedimos valorar la baja contable, sujeta a autorización. Para los $3,770.00 afirmamos presentar factura, transferencia, Kardex y notas de entrada y salida, vinculados con PN-DR-1-01/03/2024 y PN-EG-13-27/03/2024.
 
-La UTF sí reconoce atendidos $1,374,124.64. Pero para las otras dos pólizas dice que recibió documentos de traspaso, recibos en especie y provisiones, sin los Kardex, muestras y notas de entrada y salida necesarios para acreditar origen y destino. Por eso conserva el residual. La defensa necesita enfrentar esa falta documental concreta, vinculando cada soporte con las dos pólizas; no basta reiterar que la propaganda provino del Verde.
+En la 2V reiteramos la procedencia de los bienes y afirmamos adjuntar soporte de su aplicación. La UTF sí reconoce atendidos $1,374,124.64. Pero para las otras dos pólizas dice que recibió documentos de traspaso, recibos en especie y provisiones, sin los Kardex, muestras y notas de entrada y salida necesarios para acreditar origen y destino. Por eso conserva el residual. La defensa necesita enfrentar esa falta documental concreta, vinculando cada soporte con las dos pólizas; no basta reiterar que la propaganda provino del Verde.
 
 La base que permanece observada es de $3,366,378.83, después de excluir $1,374,124.64 atendidos. En el ejercicio 2023, el INE impuso al PAN de Ciudad de México $7,015,680.00, equivalentes al 100% de propaganda cuestionada; esa determinación fue después revocada por problemas de valoración probatoria. Sirve como antecedente de exposición, no como multa confirmada para Quintana Roo.
 
@@ -36,9 +38,9 @@ No atendida · Primera vuelta: 23 · Segunda vuelta: 18
 
 
 
-Aquí la UTF conserva 576 operaciones registradas extemporáneamente en periodo normal, por $3,311,272.30. En la 1V planteamos que no toda modificación contable es una operación nueva: pedimos distinguir el primer registro de ajustes, reclasificaciones o correcciones posteriores. Solicitamos excluir sólo lo acreditado con pólizas vinculadas y valorar los días efectivos de retraso y la naturaleza de cada asiento. En la 2V reiteramos esa petición de análisis individual y proporcionalidad. La autoridad responde que no aportamos información suficiente para vincular los argumentos con los registros del Anexo 9 ni desvirtuar las fechas de operación y registro.
+La regla de registro en tiempo real que aplica la UTF exige registrar desde que ocurre la operación y hasta 3 días posteriores, conforme a los artículos 17 y 38 del Reglamento de Fiscalización. Aquí la UTF conserva 576 operaciones registradas extemporáneamente en periodo normal, por $3,311,272.30. En la 1V planteamos que no toda modificación contable es una operación nueva: pedimos distinguir el primer registro de ajustes, reclasificaciones o correcciones posteriores. Solicitamos excluir sólo lo acreditado con pólizas vinculadas y valorar los días efectivos de retraso y la naturaleza de cada asiento. En la 2V reiteramos esa petición de análisis individual y proporcionalidad.
 
-Ese es el obstáculo concreto: el proyecto mantiene que excedieron los tres días posteriores. Para controvertirlo necesitamos señalar qué renglón es ajuste de una operación ya registrada, su póliza original y su fecha; para los que sí subsistan, discutir la individualización con el retraso y circunstancias de cada operación. El importe observado no es por sí mismo la multa.
+La autoridad responde que no aportamos información suficiente para vincular los argumentos con los registros del Anexo 9 ni desvirtuar las fechas de operación y registro. Ese es el obstáculo concreto: el proyecto mantiene que excedieron los tres días posteriores. Para controvertirlo necesitamos señalar qué renglón es ajuste de una operación ya registrada, su póliza original y su fecha; para los que sí subsistan, discutir la individualización con el retraso y circunstancias de cada operación. El importe observado no es por sí mismo la multa.
 
 Las 576 operaciones suman $3,311,272.30; ese monto observado no es la multa. Hay precedentes confirmados del 1% para periodo normal: al PRD en Quintana Roo, ejercicio 2022, se le impusieron $90,303.51 sobre $9,030,351.44; a MORENA en Nuevo León, $498,836.80 sobre $49,883,679.67. Como comparación condicionada, el 1% de la base actual sería $33,112.72.
 
@@ -54,7 +56,7 @@ No atendida · Primera vuelta: 4 · Segunda vuelta: 3
 
 
 
-Aquí subsiste la omisión de 16 reportes trimestrales de gasto programado; el proyecto no señala un monto involucrado. En la 1V explicamos que durante el primer trimestre no hubo gasto del proyecto y que los informes y acuses de los trimestres siguientes se habían presentado oportunamente. En la 2V reiteramos la ausencia de erogaciones y añadimos que el Sistema de Gasto Programado ya no permitía generar ese reporte ni registrar un trimestral en ceros sin proyecto.
+El artículo 258 Bis del Reglamento de Fiscalización exige reportes trimestrales pormenorizados y justificados del gasto programado. Aquí subsiste la omisión de 16 reportes trimestrales de gasto programado; el proyecto no señala un monto involucrado. En la 1V explicamos que durante el primer trimestre no hubo gasto del proyecto y que los informes y acuses de los trimestres siguientes se habían presentado oportunamente. En la 2V reiteramos la ausencia de erogaciones y añadimos que el Sistema de Gasto Programado ya no permitía generar ese reporte ni registrar un trimestral en ceros sin proyecto.
 
 La UTF distingue dos grupos: reconoce atendidos los proyectos con referencia 1, pero para la referencia 2 contrasta las fechas de inicio y fin de las actas modificadas y sostiene que sí correspondía presentar los informes, que no localizó. Lo pendiente es confrontar cada uno de esos 16 reportes con el periodo del proyecto y la evidencia de las limitaciones del sistema que alegamos. No debemos extender la atención del primer grupo al segundo.
 
